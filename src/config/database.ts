@@ -25,13 +25,13 @@ export default class Database {
                 if (error) {
                   this.error.add(500, JSON.stringify(error), "server error");
                   resolve(2);
-                };
-                
-                const rows = (<RowDataPacket[]> result);
-                if(rows.length > 0){
-                    resolve(1);
                 }else{
-                    resolve(0);
+		            const rows = (<RowDataPacket[]> result);
+		            if(rows.length > 0){
+		                resolve(1);
+		            }else{
+		                resolve(0);
+		            }
                 }
             });
         });
