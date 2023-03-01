@@ -23,6 +23,7 @@ export default class Database {
         let init = await new Promise<number>((resolve, reject) =>{
             this.db.query( query, [process.env.DB_NAME, name], (error, result) => {
                 if (error) {
+                	console.log(error);
                   this.error.add(500, JSON.stringify(error), "server error");
                   resolve(2);
                 }else{
